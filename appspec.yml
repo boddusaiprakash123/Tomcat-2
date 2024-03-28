@@ -3,11 +3,9 @@ os: linux
 files:
   - source: /
     destination: /opt/tomcat/tomcat9
-  - source:  /opt/tomcat/tomcat9/bin/startup.sh  # Update this path to the actual location of startup.sh in your deployment
-    destination: /opt/tomcat/tomcat9/bin/startup.sh
     permissions:
-      - object: /opt/tomcat/tomcat9/bin/startup.sh
-        pattern: startup.sh
+      - object: /opt/tomcat/tomcat9/bin/catalina.sh
+        pattern: catalina.sh
         mode: "0755"  # Set the desired permission mode here (e.g., 0755 for execute permission)
 hooks:
   AfterInstall:
