@@ -3,6 +3,10 @@ os: linux
 files:
   - source: /
     destination: /opt/tomcat/tomcat9/webapps/myapp
+permissions:
+  - object: /opt/tomcat/tomcat9/bin/*.sh
+    pattern: "*.sh"
+    mode: "0755"  # Set the desired permission mode here (e.g., 0755 for execute permission)
 hooks:
   AfterInstall:
     - location: /opt/tomcat/tomcat9/bin/catalina.sh
