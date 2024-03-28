@@ -1,10 +1,10 @@
 version: 0.0
-Resources:
-  - TargetService:
-      Type: AWS::EC2::Instance
-      Properties:
-        InstanceId: i-0753f5adac5c0f4d8
-        LoadBalancerInfo:
-          ContainerName: "tomcat"
-          ContainerPort: 8080
-
+os: linux
+files:
+  - source: /
+    destination: /opt/tomcat/tomcat9/webapps/myapp
+hooks:
+  AfterInstall:
+    - location: /opt/tomcat/tomcat9/bin/startup.sh
+      timeout: 300
+      runas: root
